@@ -493,8 +493,9 @@ function Index() {
             <div className="mt-8 text-sm md:text-base text-[color-mix(in_oklab,var(--bone)_80%,transparent)] leading-relaxed">
               <p>
                 We build outdoor living spaces with your choice of materials and aid in the design
-                process to bring your vision into your backyard. From stamped concrete patios, to
-                decks with awnings, even saunas and treehouses, we can build it.
+                process to bring your vision into your backyard. From stamped concrete patios to
+                hardwood decks, stained cedar awnings to hot tub pads, we can build it. Yes, we
+                build treehouses, too. Call or text us for a free same day, in person consultation.
               </p>
             </div>
           </div>
