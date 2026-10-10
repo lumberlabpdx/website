@@ -68,8 +68,7 @@ const reviews = [
 ];
 
 const pageTitle = "Lumber Lab Outdoor Construction | Portland, OR";
-const pageDescription =
-  "We are a locally owned and operated home project construction company.";
+const pageDescription = "We are a locally owned and operated home project construction company.";
 
 // TODO: replace with the real business number (used in tel:/sms: links, visible text, and schema).
 const BUSINESS_PHONE = "+19710000000";
