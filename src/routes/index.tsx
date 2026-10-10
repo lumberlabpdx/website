@@ -27,38 +27,38 @@ import { cn } from "@/lib/utils";
 const projects = [
   {
     image: cedarDeck,
-    title: "Forest Cedar Retreat",
-    alt: "Western red cedar deck with cable rail in West Hills, Portland",
-    location: "West Hills · Portland",
-    detail: "Western red cedar · Cable rail",
+    title: "project name goes here",
+    alt: "project description",
+    location: "location",
+    detail: "project materials detail",
   },
   {
     image: compositeDeck,
-    title: "Modern Garden Deck",
-    alt: "Composite garden deck with built-in seating in Alameda, Portland",
-    location: "Alameda · Portland",
-    detail: "Composite · Built-in seating",
+    title: "project name goes here",
+    alt: "project description",
+    location: "location",
+    detail: "project materials detail",
   },
   {
     image: coveredDeck,
-    title: "All-Season Terrace",
-    alt: "Covered cedar deck with a dining terrace in Lake Oswego, Oregon",
-    location: "Lake Oswego · Oregon",
-    detail: "Covered cedar · Dining terrace",
+    title: "project name goes here",
+    alt: "project description",
+    location: "location",
+    detail: "project materials detail",
   },
 ];
 
 // TODO: replace with real reviews. Shown one per slide, so keep the same length as `projects`.
 const reviews = [
   {
-    quote: "Daddy, ",
-    name: "Chill",
-    location: "XD",
+    quote: "These photos and reviews are placeholders and are not real.",
+    name: "Dom Saint P",
+    location: "Southeast",
   },
   {
-    quote: "What the hell?",
-    name: "Even Is",
-    location: "That",
+    quote: "These photos and reviews are placeholders and are not real.",
+    name: "Dom Saint P",
+    location: "Southeast",
   },
   {
     quote: "These photos and reviews are placeholders and are not real.",
@@ -110,7 +110,7 @@ const serviceAreas = [
   "Ridgefield, WA",
 ];
 
-const services = ["Decks", "Patios", "Gazebos", "Pergolas", "Fences", "ADUs", "Saunas"];
+const services = ["Decks", "Patios", "Gazebos", "Pergolas", "Fences", "ADUs", "Saunas", "Concrete"];
 
 const REVIEW_CARD_CLASS =
   "absolute top-6 right-6 md:top-10 md:right-14 z-[4] max-w-sm p-4 md:p-5 rounded pointer-events-none animate-fade-in bg-[color-mix(in_oklab,var(--iron)_82%,transparent)] backdrop-blur-md border border-[color-mix(in_oklab,var(--bone)_12%,transparent)] border-t-2 border-t-[var(--cedar)]";
