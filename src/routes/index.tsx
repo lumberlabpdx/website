@@ -365,11 +365,11 @@ function Index() {
             <br />& SW Washington
           </p>
           <h1>
-            You Design
+            Locally Owned
             <br />
-            <em>We Build</em>
+            <em>Family Run</em>
           </h1>
-          <p className="intro">We help bring your vision into your backyard.</p>
+          <p className="intro">20+ years of experience for you to rely on.</p>
         </div>
 
         <nav className="main-nav" aria-label="Main navigation">
@@ -493,7 +493,8 @@ function Index() {
             <div className="mt-8 text-sm md:text-base text-[color-mix(in_oklab,var(--bone)_80%,transparent)] leading-relaxed">
               <p>
                 We build outdoor living spaces with your choice of materials and aid in the design
-                process to bring your vision into your backyard.
+                process to bring your vision into your backyard. From stamped concrete patios, to
+                decks with awnings, even saunas and treehouses, we can build it.
               </p>
             </div>
           </div>
@@ -589,7 +590,7 @@ function Index() {
                     required
                     name="message"
                     rows={4}
-                    placeholder="Tell us about what you want built."
+                    placeholder="Tell us about your project."
                   />
                 </label>
 
