@@ -67,9 +67,9 @@ const reviews = [
   },
 ];
 
-const pageTitle = "Portland Deck Builder | Lumber Lab Outdoor Construction";
+const pageTitle = "Lumber Lab Outdoor Construction | Portland, OR";
 const pageDescription =
-  "Custom handcrafted decks, patios, and outdoor construction serving the Greater Portland Metropolitan Area. Free quotes/consultation.";
+  "We are a locally owned and operated home project construction company.";
 
 // TODO: replace with the real business number (used in tel:/sms: links, visible text, and schema).
 const BUSINESS_PHONE = "+19710000000";
@@ -369,7 +369,7 @@ function Index() {
             <br />
             <em>Family Run</em>
           </h1>
-          <p className="intro">20+ years of experience for you to rely on.</p>
+          <p className="intro">We build it better.</p>
         </div>
 
         <nav className="main-nav" aria-label="Main navigation">
