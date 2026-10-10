@@ -164,6 +164,17 @@
   letter-spacing: 0.18em;
 }
 
+.brand-licenses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 12px;
+  color: color-mix(in oklab, var(--bone) 42%, transparent);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
 .brand-copy {
   margin-top: auto;
   margin-bottom: clamp(28px, 6vh, 68px);
@@ -236,17 +247,6 @@
 
 .nav-button:hover {
   padding-left: 25px;
-}
-
-.brand-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: clamp(18px, 3vh, 34px);
-  padding-right: 42px;
-  color: color-mix(in oklab, var(--bone) 42%, transparent);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
 }
 
 /* ==========================================================================
@@ -570,13 +570,6 @@
     display: none;
   }
 
-  .brand-footer {
-    flex-wrap: wrap;
-    gap: 4px 12px;
-    margin-top: 14px;
-    padding-right: 0;
-  }
-
   .brand-copy {
     margin-top: 40px;
     margin-bottom: 24px;
@@ -676,10 +669,6 @@
     margin-top: 12px;
   }
 
-  .brand-footer {
-    margin-top: 14px;
-  }
-
   .slide-panel {
     padding-block: 30px;
   }
@@ -711,10 +700,6 @@
 
   .intro {
     margin-top: 10px;
-  }
-
-  .brand-footer {
-    margin-top: 12px;
   }
 
   .services-list {
@@ -752,10 +737,6 @@
     height: 44px;
   }
 
-  .brand-footer {
-    margin-top: 8px;
-  }
-
   .services-list {
     margin-top: 12px;
   }
@@ -782,10 +763,6 @@
   }
 
   .intro {
-    margin-top: 6px;
-  }
-
-  .brand-footer {
     margin-top: 6px;
   }
 

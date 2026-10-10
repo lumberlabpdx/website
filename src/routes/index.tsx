@@ -369,6 +369,11 @@ function Index() {
           </div>
         </div>
 
+        <div className="brand-licenses">
+          <span>CCB #{CCB_NUMBER}</span>
+          {WA_LNI_NUMBER && <span>WA L&amp;I {WA_LNI_NUMBER}</span>}
+        </div>
+
         <div className="brand-copy animate-fade-in">
           <p className="eyebrow">
             Serving the Greater PDX Metro Area
@@ -398,12 +403,6 @@ function Index() {
             <ArrowRight />
           </CedarButton>
         </nav>
-
-        <div className="brand-footer">
-          <span>CCB #{CCB_NUMBER}</span>
-          {WA_LNI_NUMBER && <span>WA L&amp;I {WA_LNI_NUMBER}</span>}
-          <span>Licensed/Bonded/Insured</span>
-        </div>
       </section>
 
       {/* --- Right Interactive Stage --- */}
