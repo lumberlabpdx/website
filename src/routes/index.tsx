@@ -27,21 +27,21 @@ import { cn } from "@/lib/utils";
 const projects = [
   {
     image: cedarDeck,
-    title: "project name goes here",
+    title: "project name",
     alt: "project description",
     location: "location",
     detail: "project materials detail",
   },
   {
     image: compositeDeck,
-    title: "project name goes here",
+    title: "project name",
     alt: "project description",
     location: "location",
     detail: "project materials detail",
   },
   {
     image: coveredDeck,
-    title: "project name goes here",
+    title: "project name",
     alt: "project description",
     location: "location",
     detail: "project materials detail",
@@ -615,7 +615,7 @@ function Index() {
                     </p>
                   )}
                 </div>
-                <p className="form-note">Website by Dom Saint P</p>
+                <p className="form-note">Made with Love by Dom Saint P</p>
               </form>
             </div>
           )}
