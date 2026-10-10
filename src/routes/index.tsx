@@ -9,9 +9,9 @@ import {
   useState,
 } from "react";
 
-import cedarDeck from "@/assets/cedar-deck.webp";
-import compositeDeck from "@/assets/composite-deck.webp";
-import coveredDeck from "@/assets/covered-deck.webp";
+import deck from "@/assets/deck.jpg";
+import stamp from "@/assets/stamp.jpg";
+import tree from "@/assets/tree.jpg";
 import logo from "@/assets/logo-icon-png.png";
 import aboutLogo from "@/assets/logo-full-png.png";
 import { Button } from "@/components/ui/button";
@@ -26,21 +26,21 @@ import { cn } from "@/lib/utils";
 
 const projects = [
   {
-    image: cedarDeck,
+    image: deck,
     title: "project name",
     alt: "project description",
     location: "location",
     detail: "project materials detail",
   },
   {
-    image: compositeDeck,
+    image: stamp,
     title: "project name",
     alt: "project description",
     location: "location",
     detail: "project materials detail",
   },
   {
-    image: coveredDeck,
+    image: tree,
     title: "project name",
     alt: "project description",
     location: "location",
@@ -109,7 +109,18 @@ const serviceAreas = [
   "Ridgefield, WA",
 ];
 
-const services = ["Decks", "Patios", "Gazebos", "Pergolas", "Fences", "ADUs", "Saunas", "Concrete"];
+const services = [
+  "Decks",
+  "Patios",
+  "Gazebos",
+  "Pergolas",
+  "Fences",
+  "ADUs",
+  "Saunas",
+  "Concrete",
+  "Treehouses",
+  "Playgrounds",
+];
 
 const REVIEW_CARD_CLASS =
   "absolute top-6 right-6 md:top-10 md:right-14 z-[4] max-w-sm p-4 md:p-5 rounded pointer-events-none animate-fade-in bg-[color-mix(in_oklab,var(--iron)_82%,transparent)] backdrop-blur-md border border-[color-mix(in_oklab,var(--bone)_12%,transparent)] border-t-2 border-t-[var(--cedar)]";
@@ -214,7 +225,7 @@ export const Route = createFileRoute("/")({
 /* Small helpers / components                                                 */
 /* -------------------------------------------------------------------------- */
 
-type Panel = "none" | "about" | "quote";
+type Panel = "none" | "about" | "services" | "quote";
 type SubmitStatus = "idle" | "sending" | "sent" | "error";
 
 function usePrefersReducedMotion() {
@@ -368,12 +379,17 @@ function Index() {
             <br />
             <em>Family Run</em>
           </h1>
-          <p className="intro">We build it better.</p>
+          <p className="intro">Website by Dom. Work in Progress.</p>
         </div>
 
         <nav className="main-nav" aria-label="Main navigation">
           <CedarButton className="nav-button" onClick={() => openPanel("about")}>
             <span>About The Lab</span>
+            <ArrowRight />
+          </CedarButton>
+
+          <CedarButton className="nav-button" onClick={() => openPanel("services")}>
+            <span>Services</span>
             <ArrowRight />
           </CedarButton>
 
@@ -442,9 +458,6 @@ function Index() {
 
         {/* --- Stage Pagination Controls --- */}
         <div className="stage-controls">
-          <span>
-            {String(projectIndex + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
-          </span>
           <div className="control-buttons">
             <Button variant="ghost" size="icon" aria-label="Previous" onClick={() => cycle(-1)}>
               <ArrowLeft />
@@ -504,6 +517,47 @@ function Index() {
             <CedarButton
               className="w-full h-[50px] tracking-wider text-xs justify-between"
               onClick={() => setPanel("quote")}
+            >
+              <span>Click here to get in touch</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </CedarButton>
+          </div>
+        </SlidePanel>
+
+        {/* --- Slide-in Services Panel --- */}
+        <SlidePanel
+          open={panel === "services"}
+          labelledBy="services-heading"
+          className="flex flex-col justify-between min-h-full"
+        >
+          <div>
+            <div className="services-header">
+              <div>
+                <p className="eyebrow">What we build</p>
+                <h2 id="services-heading">Services</h2>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Close services panel"
+                onClick={closePanel}
+              >
+                <X />
+              </Button>
+            </div>
+
+            <ul className="services-list">
+              {services.map((service) => (
+                <li key={service}>{service}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Bottom: call to action, pinned by mt-auto */}
+          <div className="pt-6 mt-auto">
+            <CedarButton
+              className="w-full h-[50px] tracking-wider text-xs justify-between"
+              onClick={() => openPanel("quote")}
             >
               <span>Click here to get in touch</span>
               <ArrowUpRight className="w-4 h-4" />

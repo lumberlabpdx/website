@@ -101,6 +101,8 @@
   min-height: 0;
   flex-direction: column;
   padding: clamp(24px, 4vw, 64px);
+  /* Last resort on very short windows: scroll the panel rather than cut off its bottom */
+  overflow-y: auto;
   color: var(--bone);
   /* Brushed-iron plate with warm cedar glow rising from the base */
   background:
@@ -343,10 +345,7 @@
   left: clamp(28px, 5vw, 70px);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  color: color-mix(in oklab, var(--bone) 65%, transparent);
-  font-size: 10px;
-  letter-spacing: 0.15em;
+  justify-content: flex-end;
 }
 
 .control-buttons {
@@ -369,7 +368,7 @@
 }
 
 /* ==========================================================================
-   Slide-In Panels (About & Contact)
+   Slide-In Panels (About, Services & Contact)
    ========================================================================== */
 
 .slide-panel {
@@ -394,14 +393,16 @@
   transform: translateX(0);
 }
 
-.quote-header {
+.quote-header,
+.services-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
 }
 
-.quote-header h2 {
+.quote-header h2,
+.services-header h2 {
   margin-top: 12px;
   max-width: 400px;
   font-family: var(--font-display);
@@ -411,10 +412,45 @@
   line-height: 1.02;
 }
 
-.quote-header button {
+.quote-header button,
+.services-header button {
   flex-shrink: 0;
   border-radius: 2px;
   color: var(--bone);
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  margin-top: clamp(28px, 5vh, 54px);
+}
+
+.services-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 13px;
+  border-top: 1px solid color-mix(in oklab, var(--bone) 15%, transparent);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Bottom rule under the last item in each column */
+.services-list li:nth-last-child(-n + 2) {
+  border-bottom: 1px solid color-mix(in oklab, var(--bone) 15%, transparent);
+}
+
+.services-list li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  background: var(--cedar);
 }
 
 .slide-panel form {
@@ -539,9 +575,15 @@
     padding: 24px 22px 20px;
   }
 
-  .brand-panel::after,
-  .brand-footer {
+  .brand-panel::after {
     display: none;
+  }
+
+  .brand-footer {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 14px;
+    padding-right: 0;
   }
 
   .brand-copy {
@@ -611,7 +653,8 @@
     padding: 25px 22px;
   }
 
-  .quote-header h2 {
+  .quote-header h2,
+  .services-header h2 {
     font-size: clamp(34px, 9vw, 40px);
   }
 
@@ -620,10 +663,27 @@
     margin-top: 25px;
   }
 
+  .services-list {
+    column-gap: 16px;
+    margin-top: 25px;
+  }
+
   .field-row {
     grid-template-columns: 1fr;
   }
 }
+
+/* Narrowest two-column widths (e.g. tablets held upright), where the drawers are narrow too */
+@media (min-width: 761px) and (max-width: 800px) {
+  .services-list {
+    column-gap: 16px;
+  }
+
+  .services-list li {
+    font-size: 18px;
+  }
+}
+
 @media (max-height: 690px) and (min-width: 761px) {
   .brand-copy {
     margin-bottom: 24px;
@@ -648,6 +708,114 @@
   .slide-panel form {
     margin-top: 24px;
     gap: 12px;
+  }
+
+  .services-list {
+    margin-top: 24px;
+  }
+}
+
+/* Shorter windows: tighten further so everything still fits without scrolling */
+@media (max-height: 560px) and (min-width: 761px) {
+  .brand-panel {
+    padding-block: 24px;
+  }
+
+  .brand-copy {
+    margin-bottom: 18px;
+  }
+
+  .brand-copy h1 {
+    margin-top: 10px;
+    font-size: 40px;
+  }
+
+  .intro {
+    margin-top: 10px;
+  }
+
+  .brand-footer {
+    margin-top: 12px;
+  }
+
+  .services-list {
+    margin-top: 16px;
+  }
+
+  .services-list li {
+    padding-block: 8px;
+    font-size: 18px;
+  }
+}
+
+/* Very short windows, e.g. phones held sideways */
+@media (max-height: 440px) and (min-width: 761px) {
+  .brand-panel {
+    padding-block: 16px;
+  }
+
+  .brand-copy {
+    margin-bottom: 12px;
+  }
+
+  .brand-copy h1 {
+    margin-top: 8px;
+    font-size: 32px;
+  }
+
+  .intro {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .nav-button {
+    height: 44px;
+  }
+
+  .brand-footer {
+    margin-top: 8px;
+  }
+
+  .services-list {
+    margin-top: 12px;
+  }
+
+  .services-list li {
+    padding-block: 5px;
+    font-size: 16px;
+  }
+}
+
+/* Shortest windows, e.g. smaller phones held sideways */
+@media (max-height: 380px) and (min-width: 761px) {
+  .brand-panel {
+    padding-block: 10px;
+  }
+
+  .brand-copy {
+    margin-bottom: 8px;
+  }
+
+  .brand-copy h1 {
+    margin-top: 6px;
+    font-size: 28px;
+  }
+
+  .intro {
+    margin-top: 6px;
+  }
+
+  .brand-footer {
+    margin-top: 6px;
+  }
+
+  .services-list {
+    margin-top: 8px;
+  }
+
+  .services-list li {
+    padding-block: 3px;
   }
 }
 
