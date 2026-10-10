@@ -491,7 +491,10 @@ function Index() {
             </h2>
 
             <div className="mt-8 text-sm md:text-base text-[color-mix(in_oklab,var(--bone)_80%,transparent)] leading-relaxed">
-              <p>We build outdoor living spaces with your choice of materials and aid in the design process to bring your vision into your backyard.</p>
+              <p>
+                We build outdoor living spaces with your choice of materials and aid in the design
+                process to bring your vision into your backyard.
+              </p>
             </div>
           </div>
 
