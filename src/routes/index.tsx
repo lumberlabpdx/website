@@ -78,7 +78,7 @@ const PHONE_DISPLAY = BUSINESS_PHONE.replace(/^\+1(\d{3})(\d{3})(\d{4})$/, "($1)
 const CCB_NUMBER = "000000";
 const HAS_REAL_CCB = CCB_NUMBER !== "000000";
 // TODO: your WA L&I contractor registration (e.g. "LUMBLLO000AB"). Shown in the footer when set.
-const WA_LNI_NUMBER = "";
+const WA_LNI_NUMBER = "LUMLABP000WA";
 
 // TODO: add your Google Business Profile and real social URLs once they exist.
 const SOCIAL_PROFILES: string[] = [
@@ -371,7 +371,7 @@ function Index() {
 
         <div className="brand-licenses">
           <span>CCB #{CCB_NUMBER}</span>
-          {WA_LNI_NUMBER && <span>WA L&amp;I {WA_LNI_NUMBER}</span>}
+          {WA_LNI_NUMBER && <span>{WA_LNI_NUMBER}</span>}
         </div>
 
         <div className="brand-copy animate-fade-in">
@@ -531,7 +531,7 @@ function Index() {
           <div>
             <div className="services-header">
               <div>
-                <p className="eyebrow">What we build</p>
+                <p className="eyebrow">Our build menu</p>
                 <h2 id="services-heading">Services</h2>
               </div>
               <Button
