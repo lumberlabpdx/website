@@ -1,0 +1,24 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+node_modules
+dist
+.output
+.tanstack/**
+.nitro
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Test coverage
+coverage

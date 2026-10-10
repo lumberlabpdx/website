@@ -1,0 +1,662 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+/* ==========================================================================
+   Design System & Tailwind Theme Mapping
+   ========================================================================== */
+
+@theme inline {
+  --font-sans: "Barlow", sans-serif;
+  --font-display: "Oswald", sans-serif;
+
+  --radius-md: calc(var(--radius) - 2px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* ==========================================================================
+   CSS Custom Properties
+   ========================================================================== */
+
+:root {
+  --radius: 0.25rem;
+
+  /* Iron base (warm charcoal) */
+  --background: oklch(0.17 0.012 60);
+  --foreground: oklch(0.93 0.012 85);
+
+  /* Cedar amber */
+  --primary: oklch(0.66 0.13 55);
+  --primary-foreground: oklch(0.17 0.012 60);
+  --muted-foreground: oklch(0.66 0.02 80);
+  --accent: oklch(0.26 0.015 60);
+  --accent-foreground: oklch(0.93 0.012 85);
+  --border: oklch(0.93 0.01 85 / 14%);
+  --input: oklch(0.93 0.01 85 / 18%);
+  --ring: oklch(0.66 0.09 55);
+
+  /* Industrial raw tokens */
+  --iron: oklch(0.17 0.012 60);
+  --iron-light: oklch(0.22 0.014 60);
+  --bone: oklch(0.93 0.012 85);
+  --steel: oklch(0.7 0.02 250);
+  --cedar: oklch(0.67 0.13 55);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease both;
+}
+
+/* ==========================================================================
+   Base Layer
+   ========================================================================== */
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow: hidden;
+  }
+}
+
+/* ==========================================================================
+   Site Shell & Brand Panel (Left)
+   ========================================================================== */
+
+.site-shell {
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(360px, 41%) minmax(0, 59%);
+  overflow: hidden;
+  background: var(--iron);
+}
+
+.brand-panel {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  padding: clamp(24px, 4vw, 64px);
+  color: var(--bone);
+  /* Brushed-iron plate with warm cedar glow rising from the base */
+  background:
+    repeating-linear-gradient(
+      115deg,
+      transparent 0 7px,
+      color-mix(in oklab, var(--bone) 1.8%, transparent) 7px 8px
+    ),
+    radial-gradient(
+      120% 90% at 8% 105%,
+      color-mix(in oklab, var(--cedar) 16%, transparent),
+      transparent 58%
+    ),
+    var(--iron);
+}
+
+.brand-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 28px;
+  height: 100%;
+  width: 1px;
+  background: color-mix(
+    in oklab,
+    var(--cedar) 30%,
+    color-mix(in oklab, var(--bone) 10%, transparent)
+  );
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.brand-place {
+  margin-top: 5px;
+  color: color-mix(in oklab, var(--bone) 58%, transparent);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.brand-copy {
+  margin-top: auto;
+  margin-bottom: clamp(28px, 6vh, 68px);
+  max-width: 540px;
+}
+
+.eyebrow {
+  color: var(--cedar);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.brand-copy h1 {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 5vw, 78px);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 0.96;
+  letter-spacing: 0.01em;
+}
+
+.brand-copy h1 em {
+  font-style: normal;
+  color: var(--cedar);
+  font-weight: 500;
+}
+
+.intro {
+  margin-top: 22px;
+  max-width: 420px;
+  color: color-mix(in oklab, var(--bone) 67%, transparent);
+  font-size: clamp(13px, 1.25vw, 17px);
+  line-height: 1.6;
+}
+
+/* Shared cedar call-to-action style (nav, links, submit) */
+.btn-cedar {
+  background: var(--cedar);
+  color: var(--iron);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.btn-cedar:hover {
+  background: color-mix(in oklab, var(--cedar) 86%, var(--bone));
+  color: var(--iron);
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.main-nav {
+  display: grid;
+  border-top: 1px solid color-mix(in oklab, var(--bone) 15%, transparent);
+}
+
+.nav-button {
+  height: clamp(48px, 7vh, 67px);
+  justify-content: space-between;
+  padding-inline: 20px;
+  border: 0;
+  border-radius: 0;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.nav-button:hover {
+  padding-left: 25px;
+}
+
+.brand-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: clamp(18px, 3vh, 34px);
+  padding-right: 42px;
+  color: color-mix(in oklab, var(--bone) 42%, transparent);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ==========================================================================
+   Stage & Slideshow (Right)
+   ========================================================================== */
+
+.stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--iron-light);
+  color: var(--bone);
+}
+
+.stage-clicker {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: e-resize;
+  border: 0;
+  background: transparent;
+}
+
+.stage-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.035);
+  transition:
+    opacity 0.8s ease,
+    transform 4.5s ease;
+}
+
+.stage-image-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stage-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--iron) 90%, transparent),
+    transparent 62%
+  );
+  pointer-events: none;
+}
+
+.stage-content {
+  position: absolute;
+  z-index: 3;
+  right: clamp(28px, 5vw, 70px);
+  bottom: clamp(84px, 13vh, 140px);
+  left: clamp(28px, 5vw, 70px);
+  pointer-events: none;
+}
+
+.project-caption p {
+  margin-bottom: 10px;
+  color: var(--steel);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.project-caption h2 {
+  max-width: 600px;
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 64px);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+}
+
+.project-caption span {
+  display: block;
+  margin-top: 15px;
+  color: color-mix(in oklab, var(--bone) 65%, transparent);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.stage-controls {
+  position: absolute;
+  z-index: 4;
+  right: clamp(28px, 5vw, 70px);
+  bottom: 28px;
+  left: clamp(28px, 5vw, 70px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: color-mix(in oklab, var(--bone) 65%, transparent);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.control-buttons button {
+  border: 1px solid color-mix(in oklab, var(--bone) 30%, transparent);
+  border-radius: 2px;
+  color: var(--bone);
+  background: color-mix(in oklab, var(--iron) 55%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.control-buttons button:hover {
+  background: var(--cedar);
+  border-color: var(--cedar);
+  color: var(--iron);
+}
+
+/* ==========================================================================
+   Slide-In Panels (About & Contact)
+   ========================================================================== */
+
+.slide-panel {
+  position: absolute;
+  z-index: 8;
+  inset: 0 0 0 auto;
+  width: min(620px, 88%);
+  padding: clamp(28px, 5vw, 70px);
+  overflow-y: auto;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition:
+    transform 0.45s ease,
+    visibility 0.45s;
+  background: color-mix(in oklab, var(--iron) 92%, transparent);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid color-mix(in oklab, var(--cedar) 35%, transparent);
+}
+
+.slide-panel-open {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.quote-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.quote-header h2 {
+  margin-top: 12px;
+  max-width: 400px;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4vw, 56px);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.02;
+}
+
+.quote-header button {
+  flex-shrink: 0;
+  border-radius: 2px;
+  color: var(--bone);
+}
+
+.slide-panel form {
+  display: grid;
+  gap: 18px;
+  margin-top: clamp(28px, 5vh, 54px);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.slide-panel label {
+  display: grid;
+  gap: 7px;
+  color: color-mix(in oklab, var(--bone) 70%, transparent);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.slide-panel input,
+.slide-panel textarea {
+  border-color: color-mix(in oklab, var(--bone) 24%, transparent);
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--bone) 7%, transparent);
+  color: var(--bone);
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.slide-panel input {
+  height: 45px;
+}
+
+.slide-panel textarea {
+  min-height: 92px;
+  resize: none;
+}
+
+.slide-panel input:focus,
+.slide-panel textarea:focus {
+  border-color: color-mix(in oklab, var(--cedar) 65%, transparent);
+}
+
+.slide-panel input::placeholder,
+.slide-panel textarea::placeholder {
+  color: color-mix(in oklab, var(--bone) 38%, transparent);
+}
+
+.submit-button {
+  height: 50px;
+  margin-top: 4px;
+  justify-content: space-between;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+.form-note {
+  color: color-mix(in oklab, var(--bone) 40%, transparent);
+  font-size: 10px;
+  text-align: center;
+}
+
+.success-message {
+  display: grid;
+  max-width: 420px;
+  gap: 16px;
+  margin-top: 18vh;
+}
+
+.success-message > span {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 2px;
+  background: var(--cedar);
+  color: var(--iron);
+}
+
+.success-message h3 {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.success-message p {
+  color: color-mix(in oklab, var(--bone) 65%, transparent);
+  line-height: 1.6;
+}
+
+.success-message button {
+  margin-top: 14px;
+  color: var(--bone);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 760px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .site-shell {
+    height: auto;
+    min-height: 100dvh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    overflow: visible;
+  }
+
+  .brand-panel {
+    min-height: auto;
+    padding: 24px 22px 20px;
+  }
+
+  .brand-panel::after,
+  .brand-footer {
+    display: none;
+  }
+
+  .brand-copy {
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+
+  .brand-copy h1 {
+    margin-top: 10px;
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .intro {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-name {
+    font-size: 17px;
+  }
+
+  .nav-button {
+    height: 52px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .stage {
+    min-height: clamp(420px, 64svh, 560px);
+  }
+
+  /* Review card */
+  .stage > aside:not(.slide-panel) {
+    top: 16px;
+    right: 16px;
+    max-width: 270px;
+  }
+
+  .stage-content {
+    right: 22px;
+    bottom: 76px;
+    left: 22px;
+  }
+
+  .project-caption h2 {
+    font-size: clamp(30px, 8vw, 38px);
+  }
+
+  .stage-controls {
+    right: 18px;
+    bottom: 14px;
+    left: 18px;
+  }
+
+  .control-buttons button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .slide-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    width: 100%;
+    max-height: 100dvh;
+    padding: 25px 22px;
+  }
+
+  .quote-header h2 {
+    font-size: clamp(34px, 9vw, 40px);
+  }
+
+  .slide-panel form {
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-height: 690px) and (min-width: 761px) {
+  .brand-copy {
+    margin-bottom: 24px;
+  }
+
+  .brand-copy h1 {
+    font-size: 48px;
+  }
+
+  .intro {
+    margin-top: 12px;
+  }
+
+  .brand-footer {
+    margin-top: 14px;
+  }
+
+  .slide-panel {
+    padding-block: 30px;
+  }
+
+  .slide-panel form {
+    margin-top: 24px;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
