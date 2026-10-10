@@ -420,9 +420,6 @@
 }
 
 .services-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 24px;
   margin-top: clamp(28px, 5vh, 54px);
 }
 
@@ -430,19 +427,13 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-block: 13px;
-  border-top: 1px solid color-mix(in oklab, var(--bone) 15%, transparent);
+  padding-block: 6px;
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-}
-
-/* Bottom rule under the last item in each column */
-.services-list li:nth-last-child(-n + 2) {
-  border-bottom: 1px solid color-mix(in oklab, var(--bone) 15%, transparent);
 }
 
 .services-list li::before {
@@ -664,23 +655,11 @@
   }
 
   .services-list {
-    column-gap: 16px;
     margin-top: 25px;
   }
 
   .field-row {
     grid-template-columns: 1fr;
-  }
-}
-
-/* Narrowest two-column widths (e.g. tablets held upright), where the drawers are narrow too */
-@media (min-width: 761px) and (max-width: 800px) {
-  .services-list {
-    column-gap: 16px;
-  }
-
-  .services-list li {
-    font-size: 18px;
   }
 }
 
@@ -743,8 +722,8 @@
   }
 
   .services-list li {
-    padding-block: 8px;
-    font-size: 18px;
+    padding-block: 2px;
+    font-size: 14px;
   }
 }
 
@@ -782,8 +761,8 @@
   }
 
   .services-list li {
-    padding-block: 5px;
-    font-size: 16px;
+    padding-block: 1px;
+    font-size: 13px;
   }
 }
 
@@ -815,7 +794,8 @@
   }
 
   .services-list li {
-    padding-block: 3px;
+    padding-block: 0;
+    font-size: 12px;
   }
 }
 

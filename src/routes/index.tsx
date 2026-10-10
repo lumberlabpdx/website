@@ -472,44 +472,43 @@ function Index() {
         <SlidePanel
           open={panel === "about"}
           labelledBy="about-heading"
-          className="flex flex-col justify-between min-h-full"
+          className="flex flex-col min-h-full"
         >
-          {/* Top: close button, logo, and copy */}
-          <div>
-            <div className="relative flex flex-col items-center pt-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute -top-1 right-0 text-[var(--bone)] hover:bg-[color-mix(in_oklab,var(--bone)_10%,transparent)]"
-                aria-label="Close about panel"
-                onClick={closePanel}
-              >
-                <X />
-              </Button>
+          {/* Top: close button and logo. On short windows the logo shrinks (down to min-h-24)
+              so the panel fits without scrolling; the copy and call to action keep their size. */}
+          <div className="relative flex flex-col items-center min-h-24 pt-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute -top-1 right-0 text-[var(--bone)] hover:bg-[color-mix(in_oklab,var(--bone)_10%,transparent)]"
+              aria-label="Close about panel"
+              onClick={closePanel}
+            >
+              <X />
+            </Button>
 
-              <img
-                src={aboutLogo}
-                alt="Lumber Lab Outdoor Construction logo"
-                width={640}
-                height={640}
-                loading="lazy"
-                decoding="async"
-                className="w-60 md:w-72 lg:w-80 h-auto object-contain mx-auto"
-              />
-            </div>
+            <img
+              src={aboutLogo}
+              alt="Lumber Lab Outdoor Construction logo"
+              width={640}
+              height={640}
+              loading="lazy"
+              decoding="async"
+              className="w-60 md:w-72 lg:w-80 h-auto min-h-0 object-contain mx-auto"
+            />
+          </div>
 
-            <h2 id="about-heading" className="sr-only">
-              About Lumber Lab Outdoor Construction
-            </h2>
+          <h2 id="about-heading" className="sr-only">
+            About Lumber Lab Outdoor Construction
+          </h2>
 
-            <div className="mt-8 text-sm md:text-base text-[color-mix(in_oklab,var(--bone)_80%,transparent)] leading-relaxed">
-              <p>
-                We build outdoor living spaces with your choice of materials and aid in the design
-                process to bring your vision into your backyard. From stamped concrete patios to
-                hardwood decks, stained cedar awnings to hot tub pads, we can build it. Yes, we
-                build treehouses, too. Call or text us for a free same day, in person consultation.
-              </p>
-            </div>
+          <div className="mt-8 text-sm md:text-base text-[color-mix(in_oklab,var(--bone)_80%,transparent)] leading-relaxed">
+            <p>
+              We build outdoor living spaces with your choice of materials and aid in the design
+              process to bring your vision into your backyard. From stamped concrete patios to
+              hardwood decks, stained cedar awnings to hot tub pads, we can build it. Call or text
+              us for a free same day, in person consultation.
+            </p>
           </div>
 
           {/* Bottom: call to action, pinned by mt-auto */}
