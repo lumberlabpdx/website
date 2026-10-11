@@ -389,7 +389,7 @@ function Index() {
 
         <nav className="main-nav" aria-label="Main navigation">
           <CedarButton className="nav-button" onClick={() => openPanel("about")}>
-            <span>About The Lab</span>
+            <span>About</span>
             <ArrowRight />
           </CedarButton>
 
@@ -399,7 +399,7 @@ function Index() {
           </CedarButton>
 
           <CedarButton className="nav-button" onClick={() => openPanel("quote")}>
-            <span>Contact us</span>
+            <span>Contact</span>
             <ArrowRight />
           </CedarButton>
         </nav>
