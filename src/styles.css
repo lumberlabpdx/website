@@ -442,25 +442,17 @@
   object-position: right center;
 }
 
-.services-list li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-block: 6px;
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+/* Plain bullet list in the body font, same tone as the About drawer's copy */
+.services-list {
+  padding-left: 1.25em;
+  list-style: disc;
 }
 
-.services-list li::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  flex-shrink: 0;
-  background: var(--cedar);
+.services-list li {
+  padding-block: 6px;
+  color: color-mix(in oklab, var(--bone) 80%, transparent);
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .slide-panel form {
