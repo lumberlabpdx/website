@@ -544,11 +544,24 @@ function Index() {
               </Button>
             </div>
 
-            <ul className="services-list">
-              {services.map((service) => (
-                <li key={service}>{service}</li>
-              ))}
-            </ul>
+            <div className="services-body">
+              <ul className="services-list">
+                {services.map((service) => (
+                  <li key={service}>{service}</li>
+                ))}
+              </ul>
+
+              <div className="services-logo">
+                <img
+                  src={aboutLogo}
+                  alt=""
+                  width={640}
+                  height={640}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Bottom: call to action, pinned by mt-auto */}
