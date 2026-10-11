@@ -380,11 +380,11 @@ function Index() {
             <br />& SW Washington
           </p>
           <h1>
-            Locally Owned
+            Outdoor Living
             <br />
-            <em>Family Run</em>
+            <em>For Your Backyard</em>
           </h1>
-          <p className="intro">Website by Dom. Work in Progress.</p>
+          <p className="intro">Website and logo by Dom. Work in Progress.</p>
         </div>
 
         <nav className="main-nav" aria-label="Main navigation">
@@ -666,7 +666,7 @@ function Index() {
                     </p>
                   )}
                 </div>
-                <p className="form-note">Made with Love by Dom Saint P</p>
+                <p className="form-note">Made with love by Dom Saint P</p>
               </form>
             </div>
           )}
